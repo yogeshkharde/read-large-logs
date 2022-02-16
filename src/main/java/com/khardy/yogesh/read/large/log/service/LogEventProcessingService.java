@@ -79,6 +79,9 @@ public class LogEventProcessingService {
             while (eventsRepository.countByProcessed(false) > 0) {
                 executorService.invokeAll(evaluationTasks);
             }
+
+            log.info("Total events processed {}",processedEventsRepository.count());
+            log.info("Total events to be alerted {}",processedEventsRepository.countByAlert(true));
         } catch (InterruptedException e) {
             log.warn("Thread interrupted", e);
         } catch (IOException ioe) {

@@ -1,4 +1,4 @@
-package configuration;
+package com.khardy.yogesh.read.large.log.configuration;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

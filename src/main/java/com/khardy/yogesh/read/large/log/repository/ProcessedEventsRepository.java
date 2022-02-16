@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProcessedEventsRepository extends CrudRepository<ProcessedEvent, String> {
+    long countByAlert(boolean alert);
 }

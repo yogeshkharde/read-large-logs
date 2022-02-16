@@ -50,7 +50,7 @@ public class LogEventEvaluationTaskTest {
         Event event3 = createEvent(State.STARTED, "2", "type", "host", 6l);
         Event event4 = createEvent(State.FINISHED, "2", "type", "host", 9l);
         Event event5 = createEvent(State.STARTED, "3", "type", "host", 6l);
-        when(eventsRepository.findTop500ByProcessed(false)).thenReturn(Lists.newArrayList(event1, event2, event3, event4, event5));
+        when(eventsRepository.findTop5000ByProcessed(false)).thenReturn(Lists.newArrayList(event1, event2, event3, event4, event5));
         doNothing().when(eventsRepository).deleteAllById(Mockito.anyList());
         when(processedEventsRepository.saveAll(Mockito.anyList())).thenReturn(Lists.newArrayList());
 

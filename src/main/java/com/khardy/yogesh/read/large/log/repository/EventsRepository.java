@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface EventsRepository extends CrudRepository<Event, EventId> {
-    List<Event> findTop500ByProcessed(boolean isProcessed);
+    List<Event> findTop5000ByProcessed(boolean isProcessed);
 
     long countByProcessed(boolean isProcessed);
 }

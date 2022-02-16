@@ -9,6 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import java.nio.file.Paths;
+
 @SpringBootApplication
 @Slf4j
 @EnableJpaRepositories
@@ -23,9 +25,13 @@ public class Application implements CommandLineRunner {
         if (args.length == 0) {
             log.error("Please provide path of the file to be read");
             System.exit(-1);
+        } else if ((!Paths.get(args[0]).toFile().exists())) {
+            log.error("Provided path does not exist {}", args[0]);
+            System.exit(-1);
+        } else {
+            SpringApplication.run(Application.class, args);
+            log.info("Application finished");
         }
-        SpringApplication.run(Application.class, args);
-        log.info("Application finished");
     }
 
     @Override

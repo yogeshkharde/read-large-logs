@@ -28,7 +28,7 @@ public class LogEventEvaluationTask implements Callable<Integer> {
 
     @Override
     public Integer call() {
-        List<Event> events = eventsRepository.findTop500ByProcessed(false); // get all unprocessed events
+        List<Event> events = eventsRepository.findTop5000ByProcessed(false); // get all unprocessed events
 
         List<ProcessedEvent> processedEvents = new ArrayList<>();
 
